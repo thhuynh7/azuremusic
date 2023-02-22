@@ -1,0 +1,30 @@
+﻿@{ ViewBag.Title = "Home Page"; }
+
+<div class="jumbotron">
+    <h1>Azure Music</h1>
+    <p class="lead">My ASP.NET web application handles security and authentication using the Claims-based identity model. With my claims-aware application, the user presents an identity to the application as a set of claims.</p>
+    <p class="lead">One claim is the user's name, another is an email address. Under this model, my application makes identity-related decisions based on claims supplied by the user to authorize them to access higher value features and resources in my application.</p>
+    <br />
+    <br />
+    <p><a href="https://www.thaigta.com/" target="_blank" class="btn btn-primary btn-lg">About the Developer &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>User's role claims</h2>
+        <ol>
+            <li>Executive</li>
+            <li>Coordinator</li>
+            <li>Clerk</li>
+        </ol>
+    </div>
+    <div class="col-md-4">
+        <h2>Security Configuration</h2>
+        <ul>
+            <li>Executive role claim can add/edit/delete artists.</li>
+            <li>Coordinator role claim can add/edit/delete albums.</li>
+            <li>Clerk role claim can add/edit/delete tracks.</li>
+            <li>Anonymous can only view artist/album/track data.</li>
+        </ul>
+    </div>
+</div>

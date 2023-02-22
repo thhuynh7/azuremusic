@@ -1,0 +1,93 @@
+﻿@{
+    string controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Do not modify the meta properties below -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="1d6105ed-25e7-475c-840a-2d70341782ad" />
+    <meta name="application-name" content="AzureMusic" />
+
+    <title>@ViewBag.Title - AzureMusic</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @{
+        var userAccount = new AZUREMUSIC.Controllers.RequestUser(User as System.Security.Claims.ClaimsPrincipal);
+    }
+</head>
+<body>
+    @if (controllerName == "Home" || controllerName == "home")
+    {
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("AzureMusic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @*@if (@userAccount.IsAuthenticated){*@
+
+                        <li>@Html.ActionLink("Artists", "Index", "Artist")</li>
+                        <li>@Html.ActionLink("Albums", "Index", "Album")</li>
+                        <li>@Html.ActionLink("Tracks", "Index", "Track")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("AzureMusic", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @*@if (@userAccount.IsAuthenticated) {*@
+
+                        <li>@Html.ActionLink("Artists", "Index", "Artist")</li>
+                        <li>@Html.ActionLink("Albums", "Index", "Album")</li>
+                        <li>@Html.ActionLink("Tracks", "Index", "Track")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Thai Huynh @@ <a href="https://www.thaigta.com/">www.thaigta.com</a> - thaitdot@@gmail.com</p>
+
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
